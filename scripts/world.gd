@@ -32,3 +32,4 @@ func _on_difficulty_timeout():
 	set_vibration(currentDifficulty)
 	$spawnspot/Timer.wait_time -= .2
 	GlobalVars.boxspeed += 50
+	$currentDifficultyText.text = str(currentDifficulty)

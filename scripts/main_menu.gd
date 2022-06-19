@@ -16,6 +16,8 @@ func _ready():
 func _process(delta):
 	if connected == true:
 		$Panel/playButton.disabled = false
+	if $AudioStreamPlayer.playing == false:
+		$AudioStreamPlayer.play()
 	pass
 
 

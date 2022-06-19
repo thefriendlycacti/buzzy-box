@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scripts/main_menu.gd" type="Script" id=1]
+[ext_resource path="res://music/thesong.wav" type="AudioStream" id=2]
 
 [sub_resource type="Theme" id=1]
 
@@ -50,7 +51,7 @@ margin_top = 9.0
 margin_right = 1006.0
 margin_bottom = 73.0
 text = "Enter the local ip displayed by 
-\"party mode\" in the lovense remote app in the box below then press \"connect\" to test the connection"
+\"game mode\" in the lovense remote app in the box below then press \"connect\" to test the connection"
 
 [node name="connectButton" type="Button" parent="Panel"]
 margin_left = 729.0
@@ -68,13 +69,17 @@ margin_bottom = 103.0
 hint_tooltip = "enter device ip here"
 text = "exmple: 192.168.55.2"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 8.0
-margin_top = 560.0
-margin_right = 355.0
-margin_bottom = 593.0
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
+margin_left = 10.0
+margin_top = 561.0
+margin_right = 357.0
+margin_bottom = 594.0
 text = "Find this project on github at
 https://github.com/thefriendlycacti/buzzy-box"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
 
 [connection signal="pressed" from="Panel/playButton" to="." method="_on_playButton_pressed"]
 [connection signal="pressed" from="Panel/connectButton" to="." method="_on_connectButton_pressed"]

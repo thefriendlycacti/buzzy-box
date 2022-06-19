@@ -16,25 +16,25 @@ margin_right = 22.0
 margin_bottom = 15.0
 
 [node name="exit" type="Button" parent="Panel"]
-margin_left = 597.0
-margin_top = 260.0
-margin_right = 715.0
-margin_bottom = 312.0
+margin_left = 724.0
+margin_top = 278.0
+margin_right = 842.0
+margin_bottom = 330.0
 text = "exit"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel"]
-margin_left = 467.0
-margin_top = 128.0
-margin_right = 535.0
-margin_bottom = 161.0
-text = "You died!
-Try again?"
+margin_left = 542.0
+margin_top = 134.0
+margin_right = 632.0
+margin_bottom = 167.0
+text = "Game Over
+ Try again?"
 
 [node name="try_again" type="Button" parent="Panel"]
-margin_left = 247.0
-margin_top = 259.0
-margin_right = 372.0
-margin_bottom = 313.0
+margin_left = 305.0
+margin_top = 279.0
+margin_right = 430.0
+margin_bottom = 333.0
 rect_pivot_offset = Vector2( 232, 27 )
 text = "Try again!"
 
