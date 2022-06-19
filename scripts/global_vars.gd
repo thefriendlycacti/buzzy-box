@@ -2,6 +2,7 @@ extends Node
 
 var deviceip
 var boxspeed = 200
+var highestdifficulty = 0
 
 # Declare member variables here. Examples:
 # var a = 2
