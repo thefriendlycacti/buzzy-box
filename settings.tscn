@@ -1,0 +1,90 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/set_settings.gd" type="Script" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = -110.0
+margin_top = -83.0
+margin_right = 1164.0
+margin_bottom = 715.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="text_boxspeedstart" type="RichTextLabel" parent="Panel"]
+margin_left = 228.0
+margin_top = 114.0
+margin_right = 506.0
+margin_bottom = 181.0
+text = "Box start speed"
+
+[node name="data_boxstartspeed" type="LineEdit" parent="Panel/text_boxspeedstart"]
+margin_left = 1.0
+margin_top = 35.0
+margin_right = 252.0
+margin_bottom = 59.0
+text = "200"
+
+[node name="text_boxspeedincrease" type="RichTextLabel" parent="Panel"]
+margin_left = 228.0
+margin_top = 205.0
+margin_right = 506.0
+margin_bottom = 272.0
+text = "Box dificulty scaling speed"
+
+[node name="data_boxspeedincrease" type="LineEdit" parent="Panel/text_boxspeedincrease"]
+margin_left = 1.0
+margin_top = 35.0
+margin_right = 252.0
+margin_bottom = 59.0
+text = "50"
+
+[node name="text_boxspawnratedecrease" type="RichTextLabel" parent="Panel"]
+margin_left = 229.0
+margin_top = 285.0
+margin_right = 507.0
+margin_bottom = 352.0
+text = "Box spawn rate increase (Seconds taken off of spawn rate per difficulty"
+
+[node name="data_boxspawnratedecrease" type="LineEdit" parent="Panel/text_boxspawnratedecrease"]
+margin_left = 1.0
+margin_top = 35.0
+margin_right = 252.0
+margin_bottom = 59.0
+text = ".15"
+
+[node name="text_boxspawnratestart" type="RichTextLabel" parent="Panel"]
+margin_left = 229.0
+margin_top = 363.0
+margin_right = 507.0
+margin_bottom = 430.0
+text = "How long until boxes spawn at the start(Seconds)"
+
+[node name="data_boxspawnratestart" type="LineEdit" parent="Panel/text_boxspawnratestart"]
+margin_left = 1.0
+margin_top = 35.0
+margin_right = 252.0
+margin_bottom = 59.0
+text = "3"
+
+[node name="save-settings" type="Button" parent="."]
+margin_left = 617.0
+margin_top = 534.0
+margin_right = 786.0
+margin_bottom = 582.0
+text = "Save and return to menu"
+
+[node name="dont-save" type="Button" parent="."]
+margin_left = 804.0
+margin_top = 533.0
+margin_right = 1008.0
+margin_bottom = 581.0
+text = "Dont save and return to menu"
+
+[connection signal="pressed" from="save-settings" to="." method="_on_savesettings_pressed"]
+[connection signal="pressed" from="dont-save" to="." method="_on_dontsave_pressed"]

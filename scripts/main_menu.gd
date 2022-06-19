@@ -1,10 +1,6 @@
 extends Control
 
 
-
-var connected = false
-
-
 func _ready():
  pass
 
@@ -14,18 +10,18 @@ func _ready():
 
 
 func _process(delta):
-	if connected == true:
+	if GlobalVars.deviceconnected == true:
 		$Panel/playButton.disabled = false
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
-	pass
+
 
 
 func _on_playButton_pressed():
-	if connected == true:
+	if GlobalVars.deviceconnected == true:
 		print("start!")
 		get_tree().change_scene("res://world.tscn")
-	pass # Replace with function body.
+
 
 
 func _on_connectButton_pressed():
@@ -48,11 +44,11 @@ func _on_connectButton_pressed():
 		if http.get_status() == HTTPClient.STATUS_CONNECTED:
 			print("Connected with success!")
 			GlobalVars.deviceip = ipadd
-			connected = true
+			GlobalVars.deviceconnected = true
 			break
-	if connected == false:
+	if GlobalVars.deviceconnected == false:
 		print("there was an error connecting")
-	pass # Replace with function body.
+
 
 
 func _on_text_enterip_text_entered(new_text):
@@ -75,8 +71,12 @@ func _on_text_enterip_text_entered(new_text):
 		if http.get_status() == HTTPClient.STATUS_CONNECTED:
 			print("Connected with success!")
 			GlobalVars.deviceip = ipadd
-			connected = true
+			GlobalVars.deviceconnected = true
 			break
-	if connected == false:
+	if GlobalVars.deviceconnected == false:
 		print("there was an error connecting")
-	pass # Replace with function body.
+
+
+
+func _on_goto_settings_pressed():
+	get_tree().change_scene("res://settings.tscn")

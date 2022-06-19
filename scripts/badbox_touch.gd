@@ -15,7 +15,7 @@ func _ready():
 #	pass
 
 func _physics_process(delta):
-	position += transform.x * -GlobalVars.boxspeed * delta
+	position += transform.x * -GlobalVars.boxspeedcurrent * delta
 
 
 func _on_bad_box_body_entered(body):

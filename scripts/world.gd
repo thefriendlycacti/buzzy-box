@@ -5,6 +5,10 @@ var currentDifficulty = 0
 
 
 func _ready():
+	# set the current speed at the start
+	GlobalVars.boxspeedcurrent = GlobalVars.boxspeedstart
+	$spawnspot/Timer.wait_time = GlobalVars.boxspawnratestart
+	$spawnspot/Timer.start()
 	pass # Replace with function body.
 
 func _input(event):
@@ -30,7 +34,7 @@ func _on_difficulty_timeout():
 	currentDifficulty += 1
 	
 	set_vibration(currentDifficulty) # Make them feel good
-	$spawnspot/Timer.wait_time -= .15 # Make them spawn quicker
-	GlobalVars.boxspeed += 50 # Make them faster!
+	$spawnspot/Timer.wait_time = GlobalVars.boxspawnratestart - (GlobalVars.boxspawnratedecrease / currentDifficulty)  # Make them spawn quicker
+	GlobalVars.boxspeedcurrent += GlobalVars.boxspeedincrease # Make them faster!
 	$currentDifficultyText.text = str(currentDifficulty) # shows score on the score board
 	GlobalVars.highestdifficulty = currentDifficulty # so we can track it in other scenes

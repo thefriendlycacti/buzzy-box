@@ -25,7 +25,6 @@ box = ExtResource( 3 )
 
 [node name="Timer" type="Timer" parent="spawnspot"]
 wait_time = 3.0
-autostart = true
 
 [node name="difficulty" type="Timer" parent="."]
 wait_time = 10.0
