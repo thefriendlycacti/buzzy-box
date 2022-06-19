@@ -83,3 +83,4 @@ autoplay = true
 
 [connection signal="pressed" from="Panel/playButton" to="." method="_on_playButton_pressed"]
 [connection signal="pressed" from="Panel/connectButton" to="." method="_on_connectButton_pressed"]
+[connection signal="text_entered" from="Panel/text_enterip" to="." method="_on_text_enterip_text_entered"]
