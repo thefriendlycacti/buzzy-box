@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://scenes/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/badbox.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/world.gd" type="Script" id=4]
+[ext_resource path="res://scripts/spawnspot.gd" type="Script" id=5]
+
+[node name="world" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource( 1 )]
+position = Vector2( -3, 152 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, 1 )
+current = true
+
+[node name="floor" parent="." instance=ExtResource( 2 )]
+
+[node name="spawnspot" type="Position2D" parent="."]
+position = Vector2( 631, 163 )
+script = ExtResource( 5 )
+box = ExtResource( 3 )
+
+[node name="Timer" type="Timer" parent="spawnspot"]
+wait_time = 3.0
+autostart = true
+
+[node name="difficulty" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+use_threads = true
+
+[connection signal="timeout" from="spawnspot/Timer" to="spawnspot" method="_on_Timer_timeout"]
+[connection signal="timeout" from="difficulty" to="." method="_on_difficulty_timeout"]

@@ -1,0 +1,80 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/main_menu.gd" type="Script" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 1.0
+margin_right = 2.0
+margin_bottom = 2.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.003
+anchor_bottom = 0.998
+margin_left = -2.0
+margin_top = -1.0
+margin_right = -2.07202
+margin_bottom = -0.799988
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="title" type="RichTextLabel" parent="Panel"]
+margin_left = 455.0
+margin_top = 87.0
+margin_right = 538.0
+margin_bottom = 104.0
+theme = SubResource( 1 )
+text = "Buzzy Box"
+
+[node name="playButton" type="Button" parent="Panel"]
+margin_left = 413.0
+margin_top = 132.0
+margin_right = 566.0
+margin_bottom = 173.0
+hint_tooltip = "You need to add a toy first before you can play!"
+disabled = true
+text = "Play!"
+
+[node name="connectinfobox" type="RichTextLabel" parent="Panel"]
+margin_left = 732.0
+margin_top = 9.0
+margin_right = 1006.0
+margin_bottom = 73.0
+text = "Enter the local ip displayed by 
+\"party mode\" in the lovense remote app in the box below then press \"connect\" to test the connection"
+
+[node name="connectButton" type="Button" parent="Panel"]
+margin_left = 729.0
+margin_top = 114.0
+margin_right = 1004.0
+margin_bottom = 159.0
+hint_tooltip = "This will simpley make sure the toy can be connected to"
+text = "Connect"
+
+[node name="text_enterip" type="LineEdit" parent="Panel"]
+margin_left = 728.0
+margin_top = 79.0
+margin_right = 998.0
+margin_bottom = 103.0
+hint_tooltip = "enter device ip here"
+text = "exmple: 192.168.55.2"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 8.0
+margin_top = 560.0
+margin_right = 355.0
+margin_bottom = 593.0
+text = "Find this project on github at
+https://github.com/thefriendlycacti/buzzy-box"
+
+[connection signal="pressed" from="Panel/playButton" to="." method="_on_playButton_pressed"]
+[connection signal="pressed" from="Panel/connectButton" to="." method="_on_connectButton_pressed"]
